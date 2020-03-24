@@ -173,14 +173,14 @@ const ulCompleted = document.querySelector('#completed');
 
 
 const searching = (e) => {
-    searchTaskTitle = e.target.value;
+    searchTaskTitle = e.target.value.toLowerCase();
 
     let todoTasks = tasks.todo;
     let completedTasks = tasks.completed;
 
 
-    todoTasks = todoTasks.filter(task => task.includes(searchTaskTitle))
-    completedTasks = completedTasks.filter(task => task.includes(searchTaskTitle))
+    todoTasks = todoTasks.filter(task => task.toLowerCase().includes(searchTaskTitle))
+    completedTasks = completedTasks.filter(task => task.toLowerCase().includes(searchTaskTitle))
 
 
     ulToDo.textContent = '';
