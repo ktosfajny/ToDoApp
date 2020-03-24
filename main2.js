@@ -80,7 +80,9 @@ addTaskToDOM = (taskTitle, complete) => {
     const task = document.createElement('li');
     task.classList.add('todo-li');
 
-    task.innerText = taskTitle;
+    const span = document.createElement('span');
+    span.classList.add('taskTitleSpan');
+    span.innerText = taskTitle;
 
     const buttonsDiv = document.createElement('div');
     buttonsDiv.classList.add('buttons');
@@ -98,6 +100,7 @@ addTaskToDOM = (taskTitle, complete) => {
 
     buttonsDiv.appendChild(removeBtn);
     buttonsDiv.appendChild(completedBtn);
+    task.appendChild(span);
     task.appendChild(buttonsDiv);
 
 
@@ -123,7 +126,10 @@ const addTask = (inputValue) => {
 
 //-------LISTENERS EVENTS-----------------
 
-document.querySelector('.header-btn').addEventListener('click', () => {
+document.querySelector('.header-btn').addEventListener('click', (e) => {
+
+
+
     const inputValue = input.value;
     addTask(inputValue);
 });
